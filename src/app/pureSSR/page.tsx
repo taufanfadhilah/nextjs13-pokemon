@@ -1,8 +1,7 @@
-import SearchInput from "@/app/components/SearchInput";
-import Providers from "@/app/components/Provider";
+import SSRPokemonTable from "@/app/components/SSRPokemonTable";
+
 import { store } from "@/app/store";
 import { setStartupPokemon } from "@/app/store/searchSlice";
-import Preloader from "@/app/components/Preloader";
 
 export default async function Home() {
   const req = await fetch("http://localhost:3000/api/search");
@@ -12,10 +11,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Preloader pokemons={data} />
-      <Providers>
-        <SearchInput />
-      </Providers>
+      <SSRPokemonTable />
     </main>
   );
 }
